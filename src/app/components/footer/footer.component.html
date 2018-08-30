@@ -12,6 +12,11 @@
     {{address | json}}
   </pre>
 
+  <!-- from shared module -->
+  
+  <app-address [address]="address">
+  </app-address>
+
   <button (click)="contact()">
     Contact
   </button>

@@ -1,4 +1,3 @@
-import { CartModule } from './cart/cart.module';
 import {NgModule} from '@angular/core';
 import { AppComponent } from './app.component';
 
@@ -12,12 +11,15 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
     imports: [
         // module dependencies
         BrowserModule,
         FormsModule,
+
+        SharedModule
         // AuthModule, InventoryModule, etc
     ], 
     // meta data
@@ -28,7 +30,8 @@ import { ContactComponent } from './components/contact/contact.component';
         FooterComponent,
         HomeComponent,
         AboutComponent,
-        ContactComponent, 
+        ContactComponent,
+          
         // Header, Footer etc
     ],
 

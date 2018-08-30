@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,
+         ViewChild,
+         ElementRef
+} from '@angular/core';
 
 @Component({
   selector: 'app-about',
@@ -6,6 +9,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./about.component.css']
 })
 export class AboutComponent implements OnInit {
+
+  // <input  #memberElement />
+
+  @ViewChild('memberElement')
+  memberInput: ElementRef;  // refer to DOM element
 
   members: string[] = [
     'Memeber 1',
@@ -19,6 +27,10 @@ export class AboutComponent implements OnInit {
   // view ready
   // view has been displayed in browser
   ngOnInit() {
+    // nativeElement is DOM in browser
+    // in ios/andorid, it represent native view
+    this.memberInput.nativeElement.value = 'enter name';
+    this.memberInput.nativeElement.focus(); // set cursor
   }
 
   empty() {

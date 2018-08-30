@@ -1,4 +1,4 @@
-<h2>{{title | uppercase}}</h2>
+<h2 appHighlight color="lightgreen" >{{title | uppercase}}</h2>
 
 <!--
   expression
@@ -14,11 +14,11 @@
       {{ counter % 2 == 0?'Even':'Odd'}}
 </p>
 
-<p>Price => {{price | currency}}</p>
+<p appHighlight  color="lightblue" >Price => {{price | currency}}</p>
 
-<p>Price INR => {{price | currency:'INR'}}</p>
+<p appHighlight color="grey">Price INR => {{price | currency:'INR'}}</p>
 
-<p>Price EUR => {{price | currency:'EUR'}}</p>
+<p appHighlight>Price EUR => {{price | currency:'EUR'}}</p>
 
 <p> Today  => {{today}}</p>
 
@@ -28,6 +28,12 @@
       {{today | date:'fullDate' | uppercase}}</p>
 
 <p> Today Custom  => {{today | date:'dd/MM/yyyy'}}</p>
+
+<p>Power 2^3 => {{ 2 | power:3 }}</p>
+
+<p>Power Counter^2 => {{ counter | power:2 }}</p>
+
+<p>Power 2^counter => {{ 2 | power:counter }}</p>
 
 
 <p>Counter </p>
