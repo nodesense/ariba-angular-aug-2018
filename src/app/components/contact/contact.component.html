@@ -1,0 +1,45 @@
+<h2>Contact Us</h2>
+
+<form (ngSubmit)="save()"
+      (ngReset)="reset()"
+>
+  Name
+  <input name="name" type="text" 
+        [(ngModel)]='contact.name' /> 
+
+  Phone 
+  <input name="phone" type="text" 
+         [ngModel]='contact.phone'
+         (ngModelChange)='contact.phone = $event'
+         /> 
+
+
+  Department
+  <select name="department"
+          [(ngModel)]="contact.department">
+
+      <option value="sales">Sales</option>    
+      <option value="technical">Technical</option>    
+      <option value="care">Customer Care</option>    
+        
+  </select>
+
+  Description
+  <textarea name="description" [(ngModel)]="contact.description">
+  </textarea>
+
+  <button type="submit">
+    Save
+  </button>
+
+  <button type="reset">
+      Reset
+  </button>
+
+</form>
+
+<pre>
+{{
+  contact | json
+}}
+</pre>

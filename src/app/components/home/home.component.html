@@ -1,0 +1,53 @@
+<h2>{{title | uppercase}}</h2>
+
+<!--
+  expression
+  data binding
+    interpolation - {{ expr }} toString
+    property binding - [] = "expr"
+  event binding - () = "expr"
+-->
+
+<p>Counter => {{counter}}</p>
+<p>Counter + 10 => {{ counter + 10 }} </p>
+<p>Odd or Even => 
+      {{ counter % 2 == 0?'Even':'Odd'}}
+</p>
+
+<p>Price => {{price | currency}}</p>
+
+<p>Price INR => {{price | currency:'INR'}}</p>
+
+<p>Price EUR => {{price | currency:'EUR'}}</p>
+
+<p> Today  => {{today}}</p>
+
+<p> Today | date => {{today | date}}</p>
+
+<p> Today | date:'fullDate' => 
+      {{today | date:'fullDate' | uppercase}}</p>
+
+<p> Today Custom  => {{today | date:'dd/MM/yyyy'}}</p>
+
+
+<p>Counter </p>
+<input [value]="counter + 10" />
+
+<button [disabled]="counter % 2 != 0">
+    {{ counter % 2 == 0?'Enabled':'Disabled'}}
+</button>
+
+<p [class]="counter % 2 == 0?'even':'odd'">
+    {{ counter % 2 == 0?'Even':'Odd'}}
+</p>
+
+<button (click)="increment()">
+  +1
+</button>
+
+<button (click)="counter = counter - 1">
+  -1
+</button>
+
+
+

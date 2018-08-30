@@ -1,0 +1,28 @@
+<div>
+    <h1>Welcome to {{appTitle}}</h1>
+    
+    <!-- compositioning of components
+        parent: app.component/app-root
+
+        children: header, home, about, etc
+    
+    -->
+
+    <app-header></app-header>
+
+     <app-home></app-home>
+    <app-about></app-about>
+    <app-contact></app-contact>
+
+    <div>
+        <p> Msg is {{msg}}</p>
+        <app-footer [company]="appTitle"
+                    [today]="today"
+                    [address]="address"
+                    (contactEvent)="msg = $event"
+        >
+    
+    </app-footer>
+    </div>
+    
+</div>

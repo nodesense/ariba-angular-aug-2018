@@ -1,0 +1,22 @@
+<div [ngClass]="{ highlight: highlightNow }"
+     (mouseenter)="highlightNow = true"   
+     (mouseleave)="highlightNow = false"
+>
+  <hr />
+
+  <p>Copyrights @{{today.getFullYear()}}, {{company}} </p>
+
+  <p>Address: {{address.city}} {{address.state}}</p>
+
+  <pre>
+    {{address | json}}
+  </pre>
+
+  <button (click)="contact()">
+    Contact
+  </button>
+
+  <button (click)= "true == true">
+    CLick
+  </button>
+</div>

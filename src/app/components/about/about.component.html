@@ -1,0 +1,37 @@
+<h2>About</h2>
+
+<button (click)="empty()">
+  Empty
+</button>
+
+<!-- ng 2.0
+
+  # - template reference variable
+  helps to get DOM element
+
+  memberElement DOM object of input element
+-->
+
+<input name="memberName" type="text" #memberElement />
+
+<button (click)="addMember(memberElement.value)">
+    Add Member
+</button>
+  
+<button (click)="showMembers = !showMembers">
+  Toggle
+</button>
+
+<ul *ngIf="showMembers else elsePart">
+  <li *ngFor="let name of members">
+      {{name}}
+  </li>
+</ul>
+
+<!-- ng4.0 onwares
+  ngIf else
+-->
+
+<ng-template #elsePart>
+  <p>Members is not shown</p>
+</ng-template>
