@@ -42,6 +42,7 @@ export class FooterComponent implements OnInit {
     // triggering event
     // passign random string are event parameter
     // msg is received as $event
+    // publish
     this.contactEvent.emit(Math.random().toString());
   }
 

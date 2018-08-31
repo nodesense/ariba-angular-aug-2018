@@ -1,0 +1,44 @@
+<h2>Product List</h2>
+
+<form>
+    <h4>Sort</h4>
+    <select name="fieldName"  [(ngModel)]="selectedField" >
+       <option *ngFor="let fieldName of fieldList"
+               [value]="fieldName">
+             {{fieldName | uppercase}}
+       </option>
+    </select>
+ 
+    Sort Type
+    <select name="sortType"  [(ngModel)]="sortField">
+        <option value="asc">Asc</option>
+        <option value="desc">Desc</option>
+    </select>
+ </form>
+
+ <p>Sorting {{selectedField}} on {{sortField}}</p>
+
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Year</th>
+    <th>Delete</th>
+  </tr>
+
+  <tr *ngFor="let product of (products | sort:selectedField:sortField)">
+    <td>
+    
+      {{product.name}}
+      
+    </td>
+    <td>{{product.price}}</td>
+    <td>{{product.year}}</td>
+    <td>
+        <button (click)="deleteProduct(product.id)">
+          Delete
+        </button>
+    </td>
+  </tr>
+</table>
