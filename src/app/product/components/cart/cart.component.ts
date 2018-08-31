@@ -19,7 +19,7 @@ export class CartComponent implements OnInit, OnDestroy {
 
   subscription: Subscription;
 
-  constructor(private dataService: DataService) { 
+  constructor(public dataService: DataService) { 
     // this.amount = dataService.amount;
     // this.items = dataService.items;
     this.items$ = this.dataService.items$;

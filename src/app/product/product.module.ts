@@ -11,10 +11,13 @@ import { ProductService } from './services/product.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CartComponent } from './components/cart/cart.component';
 
-
 const routes: Routes = [
     {
-      path: 'products',
+      // path: 'products',
+
+       // for lazy loading, 'products' already prefixed in app
+      path: '',
+
       component: ProductHomeComponent,
       children: [
         {

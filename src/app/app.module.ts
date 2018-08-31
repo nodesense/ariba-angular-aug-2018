@@ -1,4 +1,4 @@
-import { ProductModule } from './product/product.module';
+// import { ProductModule } from './product/product.module';
 import {NgModule} from '@angular/core';
 import { AppComponent } from './app.component';
 
@@ -19,6 +19,8 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import {HttpClientModule} from '@angular/common/http';
 
 import {RouterModule, Routes} from '@angular/router';
+import { AuthModule } from './auth/auth.module';
+import { AuthGuard } from './auth/guards/auth.guard';
  // step 1: map url to component
 const routes: Routes = [
     {
@@ -33,6 +35,16 @@ const routes: Routes = [
         path: 'contact',
         component: ContactComponent
     },
+
+    {
+        path: 'products',
+        // path to module file, #ClassName
+        // lazy load product module
+        loadChildren : './product/product.module#ProductModule',
+
+        canActivate: [AuthGuard]
+    },
+
     {
         path: '**', // not found
         component: NotFoundComponent
@@ -51,7 +63,8 @@ const routes: Routes = [
 
         // step 2, apply route configuration to angular
         RouterModule.forRoot(routes),
-        ProductModule
+       // ProductModule,
+        AuthModule
         // AuthModule, InventoryModule, etc
     ],
     // meta data
@@ -64,8 +77,6 @@ const routes: Routes = [
         AboutComponent,
         ContactComponent,
         NotFoundComponent,
-         
-          
         // Header, Footer etc
     ],
 

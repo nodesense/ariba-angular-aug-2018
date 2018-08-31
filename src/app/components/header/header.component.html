@@ -35,11 +35,15 @@
     Contact
   </a>
 
-  <a routerLink="/auth/login" 
+  <a *ngIf="!(loggedIn$ | async)" routerLink="/auth/login" 
     class="button" 
     routerLinkActive="success" >
     Login
   </a>
+
+  <button *ngIf="(loggedIn$ | async)" (click)="logout()">
+    Logout
+  </button>
 
   <hr />
 
