@@ -19,7 +19,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import {HttpClientModule} from '@angular/common/http';
 
 import {RouterModule, Routes} from '@angular/router';
-// step 1: map url to component
+ // step 1: map url to component
 const routes: Routes = [
     {
         path: '', // home default url
@@ -64,6 +64,7 @@ const routes: Routes = [
         AboutComponent,
         ContactComponent,
         NotFoundComponent,
+         
           
         // Header, Footer etc
     ],

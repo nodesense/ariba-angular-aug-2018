@@ -27,10 +27,11 @@
     <th>Delete</th>
   </tr>
 
-  <tr *ngFor="let product of (products | sort:selectedField:sortField)">
+  <tr *ngFor="let product of (products$ | async | sort:selectedField:sortField)">
     <td>
-    
-      {{product.name}}
+      <a [routerLink]="['/products', 'edit', product.id]">
+        {{product.name}}
+      </a>
       
     </td>
     <td>{{product.price}}</td>
@@ -39,6 +40,12 @@
         <button (click)="deleteProduct(product.id)">
           Delete
         </button>
+
+        <button (click)="addItemToCart(product)">
+          +Cart
+        </button>
+        
+
     </td>
   </tr>
 </table>

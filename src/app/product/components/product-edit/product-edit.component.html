@@ -1,3 +1,92 @@
-<p>
-  product-edit works!
-</p>
+<h2 class='.captionTitle'>Product Edit - {{product.name}} </h2>
+
+<form (ngSubmit)="saveProduct()" #productForm="ngForm"  >
+ 
+  <p *ngIf="productForm.invalid">
+    Invalid form data
+  </p>
+
+  <p *ngIf="productForm.dirty">
+      form data changed
+  </p>
+
+
+  <label for="name">
+    Name
+  </label>
+
+  <!-- pName is input dom element 
+    productName is refering to instance of directive ngModel
+  -->
+  <input name="name"
+         [(ngModel)]="product.name" 
+         required
+         minlength="3"
+
+         #pName
+         #productName='ngModel'
+         testable="productName"
+         />
+
+  <p *ngIf="productName.dirty">
+      Name is changed
+  </p>
+
+  <p *ngIf="productName.invalid">
+    Name is invalid
+  </p>
+   
+  <label for="price">
+   Price
+  </label>
+  <input name="price"
+         type="number"
+        [(ngModel)]="product.price"
+
+        required
+        
+        #productPrice="ngModel"
+        />
+
+        <p *ngIf="productPrice.dirty">
+          Price is changed
+      </p>
+    
+      <p *ngIf="productPrice.invalid">
+        Price is invalid
+      </p>
+
+
+  <label for="year">
+    Year
+  </label>
+  <input name="year"
+         type="number"
+        [(ngModel)]="product.year" />
+ 
+  <label for="brandId">
+    Brand
+  </label>
+
+  <select name="brandId"
+          [(ngModel)]="product.brandId"
+           
+          >
+    <option [value]="brand.id"
+            *ngFor="let brand of (brands$ | async)">
+          {{brand.name}}
+    </option>
+  </select>
+
+  <button type="submit"
+          [disabled]="productForm.invalid"
+  >
+    Save
+  </button>
+      
+
+</form>
+
+<button (click)="gotoList()">
+  List Page
+</button>

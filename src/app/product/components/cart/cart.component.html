@@ -1,0 +1,31 @@
+<h2>Cart</h2>
+
+<p>Amount: {{amount}}</p>
+
+
+<button (click)="empty()">
+  Empty
+</button>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Qty</th>
+  </tr>
+
+  <!-- async pipe, ng 2.0 onwards
+       async pipe shall subscribe also unsubscribe
+  -->
+
+  <tr *ngFor="let item of (items$ | async)">
+    <td>
+    
+      {{item.name}}
+      
+    </td>
+    <td>{{item.price}}</td>
+    <td>{{item.qty}}</td>
+     
+  </tr>
+</table>

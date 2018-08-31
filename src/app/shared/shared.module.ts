@@ -7,7 +7,8 @@ import { SortPipe } from './pipes/sort.pipe';
 
 import { HighlightDirective } from 
         './directives/highlight.directive';
-
+import { TestableDirective } from './directives/testable.directive';
+         
 @NgModule({
   imports: [
     CommonModule
@@ -17,7 +18,8 @@ import { HighlightDirective } from
                 PowerPipe,
                 FilterPipe,
                 SortPipe,
-                HighlightDirective
+                HighlightDirective,
+                TestableDirective
                 // private , directives, pipes
               ],
 
@@ -28,7 +30,8 @@ import { HighlightDirective } from
         PowerPipe,
         FilterPipe,
         SortPipe,
-        HighlightDirective
+        HighlightDirective,
+        TestableDirective
   ]
 })
 export class SharedModule { }

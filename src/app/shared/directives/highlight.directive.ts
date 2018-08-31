@@ -12,7 +12,8 @@ import { Directive,
 // p, div, etc are called hostElement/DOM
 
 @Directive({
-  selector: '[appHighlight]'
+  selector: '[appHighlight]',
+  exportAs: 'appHighlight' // get instance with #
 })
 export class HighlightDirective implements OnInit {
   @Input()
@@ -51,6 +52,10 @@ export class HighlightDirective implements OnInit {
     console.log('mouse leave');
     this.renderer.removeStyle(this.hostElement.nativeElement,
                               'background');
+  }
+
+  setColor(color: string) {
+    this.color = color;
   }
 
 }

@@ -1,4 +1,12 @@
-<h2 appHighlight color="lightgreen" >{{title | uppercase}}</h2>
+<h2 appHighlight 
+    #myDir="appHighlight"
+color="lightgreen"
+>{{title | uppercase}}</h2>
+
+<p>Color is {{myDir.color}}</p>
+<button (click)="myDir.setColor('red')">
+  Set Color
+</button>
 
 <!--
   expression

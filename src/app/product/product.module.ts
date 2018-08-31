@@ -9,6 +9,7 @@ import { ProductSearchComponent } from './components/product-search/product-sear
 import {Routes, RouterModule} from '@angular/router';
 import { ProductService } from './services/product.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CartComponent } from './components/cart/cart.component';
 
 
 const routes: Routes = [
@@ -20,12 +21,19 @@ const routes: Routes = [
           path: 'list', // products/list
           component: ProductListComponent
         },
+
+        // add path 'cart' // products/cart
+        {
+          path: 'cart',
+          component: CartComponent
+        },
+
         {
           path: 'create',
           component: ProductEditComponent
         },
         {
-          path: 'edit/:id',
+          path: 'edit/:id', // products/edit/100
           component: ProductEditComponent
         },
         {
@@ -49,7 +57,8 @@ const routes: Routes = [
       ProductHomeComponent,
       ProductListComponent,
       ProductEditComponent,
-      ProductSearchComponent],
+      ProductSearchComponent,
+      CartComponent],
 
   providers: [
     // all services, injected values
